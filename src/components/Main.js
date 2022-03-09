@@ -1,5 +1,10 @@
+import Recipe from "./Recipe";
 function Main() {
-  return <section>Hello</section>;
+  return (
+    <section>
+      <Recipe />
+    </section>
+  );
 }
 
 export default Main;

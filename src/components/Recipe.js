@@ -80,7 +80,15 @@ function Recipe() {
           {recipe.map((recipe) => {
             return (
               <Card>
-                <CardContent>
+                <CardContent
+                  style={{
+                    marginTop: 50,
+                    marginBottom: 50,
+                    marginLeft: 200,
+                    marginRight: 200,
+                    // backgroundColor: "paleturquoise",
+                  }}
+                >
                   <h2 style={{ backgroundColor: "lavender" }}>
                     {recipe.title}
                   </h2>
