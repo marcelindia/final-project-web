@@ -11,6 +11,8 @@ import {
   Modal,
 } from "@mui/material";
 
+import BasicRating from "./BasicRating";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -61,14 +63,13 @@ function Recipe() {
           </Typography>
 
           {ingredientList?.ingredients?.map((ig) => {
-            console.log(ig);
             return (
               <ul className="list-group">
                 <li>{ig}</li>
               </ul>
             );
           })}
-
+          <BasicRating />
           <Button onClick={handleClose}>Close</Button>
         </Box>
       </Modal>
@@ -76,23 +77,30 @@ function Recipe() {
       {!recipe ? (
         <h2>Loading...</h2>
       ) : (
-        <div style={{ textAlign: "center" }}>
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: 50,
+            marginBottom: 50,
+            marginLeft: 400,
+            marginRight: 400,
+          }}
+        >
           {recipe.map((recipe) => {
             return (
               <Card>
                 <CardContent
-                  style={{
-                    marginTop: 50,
-                    marginBottom: 50,
-                    marginLeft: 200,
-                    marginRight: 200,
-                    // backgroundColor: "paleturquoise",
-                  }}
+                // style={{
+                //   marginTop: 50,
+                //   marginBottom: 50,
+                //   marginLeft: 400,
+                //   marginRight: 400,
+                // }}
                 >
                   <h2 style={{ backgroundColor: "lavender" }}>
                     {recipe.title}
                   </h2>
-                  <h3 style={{ backgroundColor: "#51d1e1" }}>
+                  <h3 style={{ backgroundColor: "pink" }}>
                     <img src={recipe.img} width="300" height="400" />
                   </h3>
                   <CardActionArea>
