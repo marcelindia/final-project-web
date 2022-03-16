@@ -1,16 +1,28 @@
 import "./App.css";
-import React from "react";
+import React, { createContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./scenes/Home";
-import AllRecipes from "./scenes/AllRecipes";
+import Recipe from "./components/Recipe";
+import Footer from "./components/Footer";
+
+export const RecipeContext = createContext();
 
 function App() {
+  const [selectedIngrResult, setSelectedIngrResult] = useState();
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/recipes" element={<AllRecipes />} />
-      {/* <Route path="/recipes/:id" element={<></>}></Route> */}
-    </Routes>
+    <div>
+      <RecipeContext.Provider
+        value={{ selectedIngrResult, setSelectedIngrResult }}
+      >
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route path="/recipes" element={<Recipe />} />
+          {/* <Route path="/recipes/:id" element={<></>}></Route> */}
+        </Routes>
+        <Footer />
+      </RecipeContext.Provider>
+    </div>
   );
 }
 

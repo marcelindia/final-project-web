@@ -4,7 +4,7 @@ html {
 }
 
 .hero-image {
-  background-image: url(../hero1.jpeg);
+  background-image: url(/src/assets/hero1.jpeg);
 
   height: 100%;
   width: 100%;

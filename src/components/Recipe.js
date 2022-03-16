@@ -1,6 +1,7 @@
 import React from "react";
-import { useState, useEffect } from "react";
-// import BasicRating from "./Ratings";
+import { useState, useEffect, useContext } from "react";
+import { RecipeContext } from "../App";
+import BasicRating from "./BasicRating";
 import {
   Card,
   CardContent,
@@ -10,8 +11,6 @@ import {
   Typography,
   Modal,
 } from "@mui/material";
-
-import BasicRating from "./BasicRating";
 
 const style = {
   position: "absolute",
@@ -26,32 +25,39 @@ const style = {
 };
 
 function Recipe() {
-  const [recipe, setRecipe] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [open, setOpen] = React.useState(false);
   const [ingredientList, setIngredientList] = useState([]);
 
+  const { selectedIngrResult } = useContext(RecipeContext);
+  // setRecipes(selectedIngrResult);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   useEffect(() => {
     fetch("https://lets-eat-71558.uk.r.appspot.com/recipes")
       .then((response) => response.json())
-      .then((data) => setRecipe(data))
+      .then((data) => setRecipes(data))
       .catch(alert);
   }, []);
+  useEffect(() => {
+    setRecipes(selectedIngrResult);
+  }, [selectedIngrResult]);
 
   const handleOnClick = (recipeId) => {
-    fetch(`https://lets-eat-71558.uk.r.appspot.com/recipes/${recipeId}`)
-      .then((response) => response.json())
-      .then((data) => setIngredientList(data))
-      .then(() => handleOpen())
-      .catch(alert);
+    if (recipeId) {
+      fetch(`https://lets-eat-71558.uk.r.appspot.com/recipes/${recipeId}`)
+        .then((response) => response.json())
+        .then((data) => setIngredientList(data))
+
+        .then(() => handleOpen())
+        .catch(alert);
+    }
   };
 
   return (
     <div>
       <Modal
         open={open}
-        // onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -69,46 +75,49 @@ function Recipe() {
               </ul>
             );
           })}
-          <BasicRating />
+          <BasicRating
+            rating={ingredientList.rating}
+            id={ingredientList.id}
+            // setRecipes={setRecipes}
+          />
           <Button onClick={handleClose}>Close</Button>
         </Box>
       </Modal>
 
-      {!recipe ? (
+      {!recipes ? (
         <h2>Loading...</h2>
       ) : (
         <div
           style={{
             textAlign: "center",
-            marginTop: 50,
-            marginBottom: 50,
+            marginTop: 60,
+            marginBottom: 60,
             marginLeft: 400,
             marginRight: 400,
+            display: "inline-flex",
+            gap: "20px",
           }}
         >
-          {recipe.map((recipe) => {
+          {recipes?.map((recipe) => {
             return (
-              <Card>
-                <CardContent
-                // style={{
-                //   marginTop: 50,
-                //   marginBottom: 50,
-                //   marginLeft: 400,
-                //   marginRight: 400,
-                // }}
-                >
+              <Card sx={{ maxWidth: 345 }}>
+                <CardContent>
                   <h2 style={{ backgroundColor: "lavender" }}>
                     {recipe.title}
                   </h2>
-                  <h3 style={{ backgroundColor: "pink" }}>
-                    <img src={recipe.img} width="300" height="400" />
+                  <h3 style={{ backgroundColor: "white" }}>
+                    <img
+                      src={recipe.img}
+                      width="300"
+                      height="450"
+                      alt="Dish requested on home page"
+                    />
                   </h3>
                   <CardActionArea>
                     <Button
                       onClick={() => {
                         if (recipe.id) {
                           handleOnClick(recipe.id);
-                          console.log(recipe);
                         }
                       }}
                     >

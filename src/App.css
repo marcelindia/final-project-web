@@ -23,11 +23,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.layout-footer {
-  color: rgb(196, 48, 48);
-  text-align: center;
-  height: 100%;
-}
 
 .App-link {
   color: #61dafb;
@@ -49,7 +44,7 @@
   }
 
   .hero-image {
-    background-image: url("hero1.jpeg");
+    background-image: url("/src/assets/hero1.jpeg");
 
     height: 100%;
     width: 100%;
@@ -68,4 +63,7 @@
     transform: translate(-50%, -50%);
     color: white;
   }
+}
+
+.icon-button {
 }
