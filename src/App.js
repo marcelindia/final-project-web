@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./scenes/Home";
 import Recipe from "./components/Recipe";
 import Footer from "./components/Footer";
+import NavigationBar from "./components/home/NavigationBar";
 
 export const RecipeContext = createContext();
 
@@ -11,6 +12,8 @@ function App() {
   const [selectedIngrResult, setSelectedIngrResult] = useState();
   return (
     <div>
+      <NavigationBar />
+
       <RecipeContext.Provider
         value={{ selectedIngrResult, setSelectedIngrResult }}
       >
@@ -18,10 +21,9 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/recipes" element={<Recipe />} />
-          {/* <Route path="/recipes/:id" element={<></>}></Route> */}
         </Routes>
-        <Footer />
       </RecipeContext.Provider>
+      <Footer />
     </div>
   );
 }
