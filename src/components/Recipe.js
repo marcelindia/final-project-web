@@ -11,7 +11,6 @@ import {
   Typography,
   Modal,
 } from "@mui/material";
-import NavigationBar from "./home/NavigationBar";
 
 const style = {
   position: "absolute",
@@ -31,15 +30,10 @@ function Recipe() {
   const [ingredientList, setIngredientList] = useState([]);
 
   const { selectedIngrResult } = useContext(RecipeContext);
-  // setRecipes(selectedIngrResult);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // useEffect(() => {
-  //   fetch("https://lets-eat-71558.uk.r.appspot.com/recipes")
-  //     .then((response) => response.json())
-  //     .then((data) => setRecipes(data))
-  //     .catch(alert);
-  // }, []);
+
   useEffect(() => {
     setRecipes(selectedIngrResult);
   }, [selectedIngrResult]);
@@ -90,8 +84,8 @@ function Recipe() {
         <div
           style={{
             textAlign: "center",
-            marginTop: 30,
-            marginBottom: 30,
+            marginTop: 40,
+            marginBottom: 40,
             marginLeft: 400,
             marginRight: 400,
             display: "inline-flex",
@@ -99,7 +93,6 @@ function Recipe() {
           }}
         >
           {recipes?.map((recipe) => {
-            console.log(recipes);
             return (
               <Card sx={{ maxWidth: 345 }}>
                 <CardContent>

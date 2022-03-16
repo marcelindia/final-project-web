@@ -12,18 +12,17 @@ function App() {
   const [selectedIngrResult, setSelectedIngrResult] = useState();
   return (
     <div>
-      <NavigationBar />
-
       <RecipeContext.Provider
         value={{ selectedIngrResult, setSelectedIngrResult }}
       >
+        <NavigationBar />
         <Routes>
           <Route path="/" element={<Home />} />
 
           <Route path="/recipes" element={<Recipe />} />
         </Routes>
+        <Footer />
       </RecipeContext.Provider>
-      <Footer />
     </div>
   );
 }

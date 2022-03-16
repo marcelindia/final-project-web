@@ -4,10 +4,12 @@ import { Box } from "@mui/system";
 function Footer() {
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box className="App-footer" sx={{ flexGrow: 1 }}>
         <AppBar position="static">
-          <Toolbar style={{ backgroundColor: "white" }}>
-            <Typography style={{ color: "black", position: "center" }}>
+          <Toolbar
+            style={{ backgroundColor: "white", justifyContent: "center" }}
+          >
+            <Typography style={{ color: "black" }}>
               &copy; 2022, Diana Marcelin
             </Typography>
           </Toolbar>

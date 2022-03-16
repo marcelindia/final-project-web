@@ -12,7 +12,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: absolute;
+  position: fixed;
 }
 
 .hero-text {
@@ -22,4 +22,8 @@ html {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+}
+
+.h1-text {
+  justify-content: center;
 }
