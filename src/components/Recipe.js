@@ -11,10 +11,11 @@ import {
   Typography,
   Modal,
 } from "@mui/material";
-import Grid from "@mui/material/Grid";
+
 import "../App.css";
-import Footer from "./Footer";
+
 import { useNavigate } from "react-router-dom";
+import NavigationBar from "./home/Header";
 
 const style = {
   position: "absolute",
@@ -89,60 +90,37 @@ function Recipe() {
       {!recipes ? (
         <h2>Loading...</h2>
       ) : (
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: 40,
-            marginBottom: 40,
-            marginLeft: 400,
-            marginRight: 400,
-            display: "inline-flex",
-            gap: "20px",
-          }}
-        >
-          <header style={{ textAlign: "center" }}>
-            <button onClick={handleFindNewRecipes}>Try More Recipes</button>
-          </header>
+        <section className="recipesResults">
           {recipes?.map((recipe) => {
             return (
-              <Grid
-                container
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-              >
-                <Card sx={{ maxWidth: 405 }}>
-                  <CardContent className="css-46bh2p-MuiCardContent-root">
-                    <h2 style={{ backgroundColor: "lavender" }}>
-                      {recipe.title}
-                    </h2>
-                    <h3 style={{ backgroundColor: "white" }}>
-                      <img
-                        src={recipe.img}
-                        width="300"
-                        height="450"
-                        alt="Dish requested on home page"
-                      />
-                    </h3>
-                    <CardActionArea>
-                      <Button
-                        onClick={() => {
-                          if (recipe.id) {
-                            handleOnClick(recipe.id);
-                          }
-                        }}
-                      >
-                        Ingredients
-                      </Button>
-                    </CardActionArea>
-                  </CardContent>
-                </Card>
-              </Grid>
+              <Card className="Card-style">
+                <CardContent>
+                  <h2 className="Card-h2">{recipe.title}</h2>
+                  <h3 className="Card-h3">
+                    <img
+                      src={recipe.img}
+                      width="300"
+                      height="450"
+                      alt="Dish requested on home page"
+                    />
+                  </h3>
+                  <CardActionArea>
+                    <Button
+                      onClick={() => {
+                        if (recipe.id) {
+                          handleOnClick(recipe.id);
+                        }
+                      }}
+                    >
+                      Ingredients
+                    </Button>
+                  </CardActionArea>
+                </CardContent>
+              </Card>
             );
           })}
-        </div>
+        </section>
       )}
-      <Footer />
     </div>
   );
 }
