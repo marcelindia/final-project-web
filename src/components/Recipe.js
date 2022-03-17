@@ -11,6 +11,7 @@ import {
   Typography,
   Modal,
 } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import "../App.css";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
@@ -80,7 +81,7 @@ function Recipe() {
           <BasicRating
             rating={ingredientList.rating}
             id={ingredientList.id}
-            // setRecipes={setRecipes}
+            setRecipes={setRecipes}
           />
           <Button onClick={handleClose}>Close</Button>
         </Box>
@@ -97,44 +98,50 @@ function Recipe() {
             marginRight: 400,
             display: "inline-flex",
             gap: "20px",
-            position: "fixed",
           }}
         >
+          <header style={{ textAlign: "center" }}>
+            <button onClick={handleFindNewRecipes}>Try More Recipes</button>
+          </header>
           {recipes?.map((recipe) => {
             return (
-              <Card sx={{ maxWidth: 345 }}>
-                <CardContent className="css-46bh2p-MuiCardContent-root">
-                  <h2 style={{ backgroundColor: "lavender" }}>
-                    {recipe.title}
-                  </h2>
-                  <h3 style={{ backgroundColor: "white" }}>
-                    <img
-                      src={recipe.img}
-                      width="300"
-                      height="450"
-                      alt="Dish requested on home page"
-                    />
-                  </h3>
-                  <CardActionArea>
-                    <Button
-                      onClick={() => {
-                        if (recipe.id) {
-                          handleOnClick(recipe.id);
-                        }
-                      }}
-                    >
-                      Ingredients
-                    </Button>
-                  </CardActionArea>
-                </CardContent>
-              </Card>
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="center"
+              >
+                <Card sx={{ maxWidth: 405 }}>
+                  <CardContent className="css-46bh2p-MuiCardContent-root">
+                    <h2 style={{ backgroundColor: "lavender" }}>
+                      {recipe.title}
+                    </h2>
+                    <h3 style={{ backgroundColor: "white" }}>
+                      <img
+                        src={recipe.img}
+                        width="300"
+                        height="450"
+                        alt="Dish requested on home page"
+                      />
+                    </h3>
+                    <CardActionArea>
+                      <Button
+                        onClick={() => {
+                          if (recipe.id) {
+                            handleOnClick(recipe.id);
+                          }
+                        }}
+                      >
+                        Ingredients
+                      </Button>
+                    </CardActionArea>
+                  </CardContent>
+                </Card>
+              </Grid>
             );
           })}
         </div>
       )}
-      <div style={{ textAlign: "center" }}>
-        <button onClick={handleFindNewRecipes}>Try More Recipes</button>
-      </div>
       <Footer />
     </div>
   );
