@@ -13,10 +13,6 @@ import {
 } from "@mui/material";
 
 import "../App.css";
-
-import { useNavigate } from "react-router-dom";
-import NavigationBar from "./home/Header";
-
 const style = {
   position: "absolute",
   top: "50%",
@@ -35,15 +31,9 @@ function Recipe() {
   const [ingredientList, setIngredientList] = useState([]);
 
   const { selectedIngrResult } = useContext(RecipeContext);
-  const navigate = useNavigate();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const handleFindNewRecipes = () => {
-    navigate("/");
-  };
-
   useEffect(() => {
     setRecipes(selectedIngrResult);
   }, [selectedIngrResult]);
@@ -93,14 +83,14 @@ function Recipe() {
         <section className="recipesResults">
           {recipes?.map((recipe) => {
             return (
-              <Card className="Card-style">
+              <Card className="card">
                 <CardContent>
-                  <h2 className="Card-h2">{recipe.title}</h2>
-                  <h3 className="Card-h3">
+                  <h2>{recipe.title}</h2>
+                  <h3>
                     <img
                       src={recipe.img}
-                      width="300"
-                      height="450"
+                      width="200"
+                      height="250"
                       alt="Dish requested on home page"
                     />
                   </h3>

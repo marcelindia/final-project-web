@@ -18,7 +18,6 @@ function App() {
     <RecipeContext.Provider
       value={{ selectedIngrResult, setSelectedIngrResult }}
     >
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -36,6 +35,7 @@ function App() {
           element={user ? <Home user={user} /> : <Login setUser={setUser} />}
         ></Route>
       </Routes>
+      <Header />
       <Footer />
     </RecipeContext.Provider>
   );

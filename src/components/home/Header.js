@@ -8,9 +8,7 @@ export default function Header() {
   };
   return (
     <header>
-      <p>
-        <Button onClick={handleLogoClick}>Try More recipes</Button>
-      </p>
+      <Button onClick={handleLogoClick}>Home</Button>
     </header>
   );
 }
