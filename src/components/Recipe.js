@@ -11,6 +11,9 @@ import {
   Typography,
   Modal,
 } from "@mui/material";
+import "../App.css";
+import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -30,9 +33,14 @@ function Recipe() {
   const [ingredientList, setIngredientList] = useState([]);
 
   const { selectedIngrResult } = useContext(RecipeContext);
+  const navigate = useNavigate();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleFindNewRecipes = () => {
+    navigate("/");
+  };
 
   useEffect(() => {
     setRecipes(selectedIngrResult);
@@ -77,7 +85,6 @@ function Recipe() {
           <Button onClick={handleClose}>Close</Button>
         </Box>
       </Modal>
-
       {!recipes ? (
         <h2>Loading...</h2>
       ) : (
@@ -90,12 +97,13 @@ function Recipe() {
             marginRight: 400,
             display: "inline-flex",
             gap: "20px",
+            position: "fixed",
           }}
         >
           {recipes?.map((recipe) => {
             return (
               <Card sx={{ maxWidth: 345 }}>
-                <CardContent>
+                <CardContent className="css-46bh2p-MuiCardContent-root">
                   <h2 style={{ backgroundColor: "lavender" }}>
                     {recipe.title}
                   </h2>
@@ -124,6 +132,10 @@ function Recipe() {
           })}
         </div>
       )}
+      <div style={{ textAlign: "center" }}>
+        <button onClick={handleFindNewRecipes}>Try More Recipes</button>
+      </div>
+      <Footer />
     </div>
   );
 }
