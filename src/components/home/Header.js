@@ -1,4 +1,5 @@
-import { Button } from "@mui/material";
+// import { AppBar, Button, Toolbar } from "@mui/material";
+// import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
@@ -6,9 +7,13 @@ export default function Header() {
   const handleLogoClick = () => {
     navigate("/");
   };
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
   return (
     <header>
-      <Button onClick={handleLogoClick}>Home</Button>
+      <button onClick={handleLoginClick}>Login</button>
+      <button onClick={handleLogoClick}>Home</button>
     </header>
   );
 }

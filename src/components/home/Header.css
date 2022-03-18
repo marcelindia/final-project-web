@@ -1,0 +1,12 @@
+.css-jz7rmq-MuiPaper-root-MuiAppBar-root {
+  background-color: transparent;
+}
+header {
+  top: 0;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}

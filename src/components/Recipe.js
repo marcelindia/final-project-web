@@ -56,7 +56,7 @@ function Recipe() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h6" component="h6">
             <header style={{ backgroundColor: "lavender" }}>
               {ingredientList.title}
             </header>

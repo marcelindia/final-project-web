@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { app } from "../ConnectAuth";
@@ -26,12 +26,12 @@ function Login({ setUser, user }) {
       })
       .catch();
   };
-  console.log("Here is my user from parent app component", user);
+
   return (
     <>
       <h1>Login</h1>
-      <hr />
-      <div className="text-center">
+
+      <div style={{ textAlign: "center" }}>
         <Button
           onClick={handleGoogleLogin}
           style={{ backgroundColor: "black", color: "white", border: "none" }}

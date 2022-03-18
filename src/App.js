@@ -7,6 +7,7 @@ import Login from "./scenes/Login";
 import SignUp from "./scenes/SignUp";
 import Footer from "./components/Footer";
 import Header from "./components/home/Header";
+import Welcome from "./scenes/Welcome";
 
 export const RecipeContext = createContext();
 
@@ -19,9 +20,9 @@ function App() {
       value={{ selectedIngrResult, setSelectedIngrResult }}
     >
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} />
 
-        <Route path="/recipes" element={<Recipe />} />
+        <Route path="/recipes" element={<Recipe />} /> */}
         <Route
           path="/login"
           element={<Login setUser={setUser} user={user} />}
@@ -31,8 +32,8 @@ function App() {
           element={<SignUp setUser={setUser} user={user} />}
         ></Route>
         <Route
-          path="/home"
-          element={user ? <Home user={user} /> : <Login setUser={setUser} />}
+          path="/"
+          element={user ? <Welcome user={user} /> : <Login setUser={setUser} />}
         ></Route>
       </Routes>
       <Header />
