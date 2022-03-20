@@ -65,16 +65,18 @@ header {
 }
 
 .recipesResults {
-  width: 100vh;
+  /* width: 100vh; */
   height: 80vh;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 10;
   margin-bottom: 10;
-  margin-left: 40rem;
+
   margin-right: 1rem;
   align-items: center;
+
+  overflow-x: scroll;
 }
 
 img {
@@ -105,4 +107,10 @@ h2 {
 h3 {
   background-color: white;
   text-align: center;
+}
+.buttonMain {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
 }

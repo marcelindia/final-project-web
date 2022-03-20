@@ -7,7 +7,7 @@ function Hero() {
     <>
       <div class="hero-image">
         <div class="hero-text">
-          <h1>Website Title</h1>
+          <h1>Inspired Cooking</h1>
           <CheckboxIng />
         </div>
       </div>

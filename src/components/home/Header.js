@@ -6,5 +6,5 @@ export default function Header() {
     navigate("/");
   };
 
-  return <header></header>;
+  return <button onClick={handleLogoClick}>Try More Recipes</button>;
 }

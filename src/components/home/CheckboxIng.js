@@ -13,10 +13,9 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 export default function CheckboxIng() {
-  const [allIngredients, setAllIngredients] = useState([]); //getting all ingredients for checkbox
+  const [allIngredients, setAllIngredients] = useState([]);
   const [selectedValues, setSelectedValues] = useState([]);
   const navigate = useNavigate();
-  // const [checked, setChecked] = useState(false);
   const handleChange = (value) => {
     setSelectedValues(value);
   };

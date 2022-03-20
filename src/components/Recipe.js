@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 
 import "../App.css";
+import Header from "./home/Header";
 const style = {
   position: "absolute",
   top: "50%",
@@ -85,7 +86,7 @@ function Recipe() {
             return (
               <Card className="card">
                 <CardContent>
-                  <h2>{recipe.title}</h2>
+                  <h2>{recipe.title} </h2>
                   <h3>
                     <img
                       src={recipe.img}
@@ -94,6 +95,7 @@ function Recipe() {
                       alt="Dish requested on home page"
                     />
                   </h3>
+
                   <CardActionArea>
                     <Button
                       onClick={() => {
@@ -111,6 +113,7 @@ function Recipe() {
           })}
         </section>
       )}
+      <Header />
     </div>
   );
 }

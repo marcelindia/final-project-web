@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./scenes/Home";
 import Recipe from "./components/Recipe";
 import Footer from "./components/Footer";
-import Header from "./components/home/Header";
 
 export const RecipeContext = createContext();
 
@@ -20,7 +19,6 @@ function App() {
 
         <Route path="/recipes" element={<Recipe />} />
       </Routes>
-      <Header />
       <Footer />
     </RecipeContext.Provider>
   );
