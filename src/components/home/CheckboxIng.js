@@ -86,7 +86,9 @@ export default function CheckboxIng() {
           ></TextField>
         )}
       />
-      <button onClick={handleSubmit}>Let's Get Cooking</button>
+      <button className="buttonHero" onClick={handleSubmit}>
+        Let's Get Cooking
+      </button>
     </>
   );
 }
