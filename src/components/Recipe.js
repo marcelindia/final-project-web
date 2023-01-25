@@ -97,7 +97,8 @@ function Recipe() {
                   </h3>
 
                   <CardActionArea>
-                    <Button
+                    <button
+                      className="recipeIngred"
                       onClick={() => {
                         if (recipe.id) {
                           handleOnClick(recipe.id);
@@ -105,7 +106,7 @@ function Recipe() {
                       }}
                     >
                       Ingredients
-                    </Button>
+                    </button>
                   </CardActionArea>
                 </CardContent>
               </Card>
